@@ -15,7 +15,7 @@ export async function getServerSideProps({ req }) {
   if (host.indexOf('localhost:') === 0) {
     account = 'wonglok831'
   } else if (host.indexOf('.our.togethertime.me') !== -1) {
-    console.log(host)
+    account = host.split('.our.togethertime.me')[0]
   }
   return {
     props: {
