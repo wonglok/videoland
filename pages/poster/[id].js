@@ -30,7 +30,12 @@ export async function getServerSideProps({ req }) {
 const Post = ({ host, account }) => {
   const router = useRouter()
   const { id } = router.query
-  return <p>Post: {JSON.stringify(id)} {host} {account}</p>
+  if (!account) {
+    if (window) {
+      window.location.assign('https://our.togethertime.me/')
+    }
+  }
+  return <p>Post: {id} {host} {account}</p>
 }
 
 export default Post
